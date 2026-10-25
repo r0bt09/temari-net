@@ -1,0 +1,26 @@
+{
+  "name": "temari-net-local-api",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Standalone local Express and PostgreSQL companion API for Temari Net",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node --watch src/index.js",
+    "db:check": "node -e \"require('dotenv').config(); require('./src/config/db').healthCheck().then(x => { console.log(x); process.exit(0); }).catch(e => { console.error(e.message); process.exit(1); })\"",
+    "seed:passwords": "node scripts/set-seed-passwords.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@google/genai": "^1.30.0",
+    "bcryptjs": "^3.0.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.6.1",
+    "express": "^5.1.0",
+    "helmet": "^8.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "pg": "^8.16.3"
+  }
+}
